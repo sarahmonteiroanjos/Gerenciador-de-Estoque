@@ -25,7 +25,7 @@ Microempreendedores e pequenos comerciantes que precisam de uma ferramenta leve 
 1. Instale o .NET SDK (versão 10.0 ou superior).(https://dotnet.microsoft.com/download).
 2. Clone este repositório.
     git clone (https://github.com/sarahmonteiroanjos/Gerenciador-de-Estoque.git)
-3. Vá até a pasta  `src`.
+3. Vá até a diretorio  `src`.
 4. Execute `dotnet restore` para baixar as dependências.  
 
 ## ⚙️ Instruções de Execução
