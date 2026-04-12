@@ -29,8 +29,9 @@ Microempreendedores e pequenos comerciantes que precisam de uma ferramenta leve 
 4. Execute `dotnet restore` para baixar as dependências.  
 
 ## ⚙️ Instruções de Execução
-Na pasta do projeto, digite:
+Na pasta do projeto, digite o comando:
     cd src
+depois:d
     dotnet run
 
 ## ▶️ Como rodar os testes
