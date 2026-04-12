@@ -30,6 +30,7 @@ Microempreendedores e pequenos comerciantes que precisam de uma ferramenta leve 
 
 ## ⚙️ Instruções de Execução
 Na pasta do projeto, digite:
+    cd src
     dotnet run
 
 ## ▶️ Como rodar os testes
