@@ -39,10 +39,12 @@ cd Gerenciador-de-Estoque
 dotnet restore  
 
 ## ⚙️ Instruções de Execução
-Para rodar a aplicação principal, navegue até a pasta do projeto e execute:
-    cd src/MeuProjetoEstoque
 
-dotnet run
+1. Certifique-se de ter o [.NET SDK](https://dotnet.microsoft.com/download) instalado.
+2. Clone o repositório.
+3. Para rodar a aplicação interativa:
+   ```bash
+   dotnet run --project src/MeuProjetoEstoque.csproj
 
 ## ▶️ Como rodar os testes
 Para validar se o sistema está calculando os alertas corretamente, use:
