@@ -1,74 +1,59 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace ControleEstoque
+namespace MeuProjetoEstoque
 {
     class Program
     {
-        static void Main(string[] args)
+        // Alteramos para "static async Task" para permitir comandos que usam a internet (async/await)
+        static async Task Main(string[] args)
         {
+            var viaCepService = new ViaCepService();
 
-            List<string> nomes = new List<string>();
-            List<int> quantidades = new List<int>();
-            List<int> minimos = new List<int>();
+            Console.Clear();
+            Console.WriteLine("📦 --- GERENCIADOR DE ESTOQUE --- 📦\n");
+            
+            // 1. Menu simples de teste
+            Console.WriteLine("Escolha uma opção:");
+            Console.WriteLine("1 - Testar Consulta de CEP (Novo Fornecedor)");
+            Console.WriteLine("2 - Sair");
+            Console.Write("\nOpção: ");
+            
+            string opcao = Console.ReadLine() ?? "";
 
-            bool rodando = true;
-
-            while (rodando)
+            if (opcao == "1")
             {
-                Console.Clear();
-                Console.WriteLine("--- SISTEMA DE ESTOQUE PARA MICROEMPREENDEDORES ---");
-                Console.WriteLine("1 - Cadastrar Produto");
-                Console.WriteLine("2 - Ver Estoque e Alertas");
-                Console.WriteLine("3 - Sair");
-                Console.Write("\nEscolha uma opção: ");
+                Console.Write("\nDigite o CEP para buscar o endereço (ex: 01001000): ");
+                string cepDigitado = Console.ReadLine() ?? "";
 
-                string opcao = Console.ReadLine();
+                Console.WriteLine("\nConsultando a API do ViaCEP... Aguarde...");
+                
+                // Chama o serviço que você criou
+                var endereco = await viaCepService.BuscarCepAsync(cepDigitado);
 
-                if (opcao == "1")
+                if (endereco != null)
                 {
-                    Console.Write("Nome do produto: ");
-                    string nome = Console.ReadLine();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("\n✅ Endereço Encontrado com Sucesso!");
+                    Console.ResetColor();
 
-                    Console.Write("Quantidade atual: ");
-                    int qtd = int.Parse(Console.ReadLine());
-
-                    Console.Write("Avisar quando chegar em quanto? (Mínimo): ");
-                    int min = int.Parse(Console.ReadLine());
-
-                    nomes.Add(nome);
-                    quantidades.Add(qtd);
-                    minimos.Add(min);
-
-                    Console.WriteLine("\nProduto salvo! Aperte qualquer tecla para voltar ao menu.");
-                    Console.ReadKey();
+                    Console.WriteLine($"------------------------------------");
+                    Console.WriteLine($"📍 Logradouro: {endereco.Logradouro}");
+                    Console.WriteLine($"🏘️ Bairro:     {endereco.Bairro}");
+                    Console.WriteLine($"🏙️ Cidade:     {endereco.Localidade}");
+                    Console.WriteLine($"🇧🇷 Estado:     {endereco.Uf}");
+                    Console.WriteLine($"------------------------------------");
                 }
-                else if (opcao == "2")
+                else
                 {
-                    Console.WriteLine("\n--- RELATÓRIO DE ESTOQUE ---");
-                    for (int i = 0; i < nomes.Count; i++)
-                    {
-                        Console.Write($"{nomes[i]} - Qtd: {quantidades[i]}");
-
-
-                        if (quantidades[i] <= minimos[i])
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.Write(" [ ALERTA: ESTOQUE BAIXO! RECOMPRAR ]");
-                            Console.ResetColor();
-                        }
-                        Console.WriteLine();
-                    }
-                    Console.WriteLine("\nAperte qualquer tecla para voltar.");
-                    Console.ReadKey();
-                }
-                else if (opcao == "3")
-                {
-                    rodando = false;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\n❌ CEP não encontrado ou inválido. Verifique a conexão.");
+                    Console.ResetColor();
                 }
             }
 
-            Console.WriteLine("Programa encerrado. Boas vendas!");
+            Console.WriteLine("\nPressione qualquer tecla para encerrar...");
+            Console.ReadKey();
         }
     }
 }
