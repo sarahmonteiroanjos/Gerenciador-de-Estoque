@@ -1,59 +1,142 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MeuProjetoEstoque
 {
     class Program
     {
-        // Alteramos para "static async Task" para permitir comandos que usam a internet (async/await)
+        // Alterado para "static async Task" para permitir o uso de internet (async/await) do ViaCEP
         static async Task Main(string[] args)
         {
+            List<Produto> estoque = new List<Produto>();
             var viaCepService = new ViaCepService();
 
-            Console.Clear();
-            Console.WriteLine("📦 --- GERENCIADOR DE ESTOQUE --- 📦\n");
-            
-            // 1. Menu simples de teste
-            Console.WriteLine("Escolha uma opção:");
-            Console.WriteLine("1 - Testar Consulta de CEP (Novo Fornecedor)");
-            Console.WriteLine("2 - Sair");
-            Console.Write("\nOpção: ");
-            
-            string opcao = Console.ReadLine() ?? "";
+            // Dados iniciais de teste (da sua primeira etapa)
+            estoque.Add(new Produto("Farinha de Trigo", 15, 5));
+            estoque.Add(new Produto("Açúcar Refinado", 3, 10)); // Gera alerta (qtd < minima)
+            estoque.Add(new Produto("Fermento Químico", 8, 2));
 
-            if (opcao == "1")
+            while (true)
             {
-                Console.Write("\nDigite o CEP para buscar o endereço (ex: 01001000): ");
-                string cepDigitado = Console.ReadLine() ?? "";
+                Console.Clear();
+                Console.WriteLine("📦 --- GERENCIADOR DE ESTOQUE --- 📦\n");
+                Console.WriteLine("1 - Listar Produtos em Estoque");
+                Console.WriteLine("2 - Adicionar Novo Produto");
+                Console.WriteLine("3 - Consultar CEP (Novo Fornecedor)");
+                Console.WriteLine("4 - Sair");
+                Console.Write("\nEscolha uma opção: ");
 
-                Console.WriteLine("\nConsultando a API do ViaCEP... Aguarde...");
-                
-                // Chama o serviço que você criou
-                var endereco = await viaCepService.BuscarCepAsync(cepDigitado);
+                string opcao = Console.ReadLine() ?? "";
 
-                if (endereco != null)
+                if (opcao == "1")
                 {
+                    Console.Clear();
+                    Console.WriteLine("📋 --- PRODUTOS CADASTRADOS --- 📋\n");
+
+                    foreach (var prod in estoque)
+                    {
+                        Console.Write($"- {prod.Nome} | Qtd: {prod.Quantidade} (Mínimo: {prod.QuantidadeMinima})");
+                        
+                        // Alerta visual se o estoque estiver baixo
+                        if (prod.Quantidade < prod.QuantidadeMinima)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine(" ⚠️ [ALERTA: ESTOQUE BAIXO]");
+                            Console.ResetColor();
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                        }
+                    }
+
+                    Console.WriteLine("\nPressione qualquer tecla para voltar ao menu...");
+                    Console.ReadKey();
+                }
+                else if (opcao == "2")
+                {
+                    Console.Clear();
+                    Console.WriteLine("➕ --- CADASTRAR NOVO PRODUTO --- ➕\n");
+
+                    Console.Write("Nome do Produto: ");
+                    string nome = Console.ReadLine() ?? "";
+
+                    Console.Write("Quantidade Atual: ");
+                    int.TryParse(Console.ReadLine(), out int qtd);
+
+                    Console.Write("Quantidade Mínima de Alerta: ");
+                    int.TryParse(Console.ReadLine(), out int qtdMin);
+
+                    estoque.Add(new Produto(nome, qtd, qtdMin));
+
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("\n✅ Endereço Encontrado com Sucesso!");
+                    Console.WriteLine("\n✅ Produto cadastrado com sucesso!");
                     Console.ResetColor();
 
-                    Console.WriteLine($"------------------------------------");
-                    Console.WriteLine($"📍 Logradouro: {endereco.Logradouro}");
-                    Console.WriteLine($"🏘️ Bairro:     {endereco.Bairro}");
-                    Console.WriteLine($"🏙️ Cidade:     {endereco.Localidade}");
-                    Console.WriteLine($"🇧🇷 Estado:     {endereco.Uf}");
-                    Console.WriteLine($"------------------------------------");
+                    Console.WriteLine("\nPressione qualquer tecla para voltar ao menu...");
+                    Console.ReadKey();
+                }
+                else if (opcao == "3")
+                {
+                    Console.Clear();
+                    Console.WriteLine("🔍 --- CONSULTAR CEP DE FORNECEDOR --- 🔍\n");
+                    Console.Write("Digite o CEP (ex: 01001000): ");
+                    string cepDigitado = Console.ReadLine() ?? "";
+
+                    Console.WriteLine("\nConsultando a API do ViaCEP... Aguarde...");
+                    
+                    // Integração com o serviço de CEP criado na etapa intermediária
+                    var endereco = await viaCepService.BuscarCepAsync(cepDigitado);
+
+                    if (endereco != null)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("\n✅ Endereço Encontrado com Sucesso!");
+                        Console.ResetColor();
+
+                        Console.WriteLine($"------------------------------------");
+                        Console.WriteLine($"📍 Logradouro: {endereco.Logradouro}");
+                        Console.WriteLine($"🏘️ Bairro:     {endereco.Bairro}");
+                        Console.WriteLine($"🏙️ Cidade:     {endereco.Localidade}");
+                        Console.WriteLine($"🇧🇷 Estado:     {endereco.Uf}");
+                        Console.WriteLine($"------------------------------------");
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\n❌ CEP não encontrado ou inválido. Verifique a conexão.");
+                        Console.ResetColor();
+                    }
+
+                    Console.WriteLine("\nPressione qualquer tecla para voltar ao menu...");
+                    Console.ReadKey();
+                }
+                else if (opcao == "4")
+                {
+                    Console.WriteLine("\nObrigado por usar o sistema. Até logo!");
+                    break;
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\n❌ CEP não encontrado ou inválido. Verifique a conexão.");
-                    Console.ResetColor();
+                    Console.WriteLine("\n❌ Opção inválida! Pressione qualquer tecla para tentar novamente...");
+                    Console.ReadKey();
                 }
             }
+        }
+    }
 
-            Console.WriteLine("\nPressione qualquer tecla para encerrar...");
-            Console.ReadKey();
+    public class Produto
+    {
+        public string Nome { get; set; }
+        public int Quantidade { get; set; }
+        public int QuantidadeMinima { get; set; }
+
+        public Produto(string nome, int quantidade, int quantidadeMinima)
+        {
+            Nome = nome;
+            Quantidade = quantidade;
+            QuantidadeMinima = quantidadeMinima;
         }
     }
 }
