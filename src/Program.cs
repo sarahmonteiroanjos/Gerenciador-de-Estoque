@@ -37,7 +37,7 @@ namespace MeuProjetoEstoque
                     foreach (var prod in estoque)
                     {
                         Console.Write($"- {prod.Nome} | Qtd: {prod.Quantidade} (Mínimo: {prod.QuantidadeMinima})");
-                        
+
                         // Alerta visual se o estoque estiver baixo
                         if (prod.Quantidade < prod.QuantidadeMinima)
                         {
@@ -85,7 +85,7 @@ namespace MeuProjetoEstoque
                     string cepDigitado = Console.ReadLine() ?? "";
 
                     Console.WriteLine("\nConsultando a API do ViaCEP... Aguarde...");
-                    
+
                     // Integração com o serviço de CEP criado na etapa intermediária
                     var endereco = await viaCepService.BuscarCepAsync(cepDigitado);
 
