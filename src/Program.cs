@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MeuProjetoEstoque
 {
@@ -62,16 +63,59 @@ namespace MeuProjetoEstoque
                     Console.Write("Nome do Produto: ");
                     string nome = Console.ReadLine() ?? "";
 
+                    // Validação do nome
+                    if (string.IsNullOrWhiteSpace(nome))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\nNome do produto é obrigatório!");
+                        Console.ResetColor();
+
+                        Console.ReadKey();
+                        continue;
+                    }
+
+                    // Verifica se o produto já existe
+                    if (estoque.Any(p =>
+                        p.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase)))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\nProduto já cadastrado!");
+                        Console.ResetColor();
+
+                        Console.ReadKey();
+                        continue;
+                    }
+
                     Console.Write("Quantidade Atual: ");
-                    int.TryParse(Console.ReadLine(), out int qtd);
+
+                    // Validação da quantidade
+                    if (!int.TryParse(Console.ReadLine(), out int qtd) || qtd < 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\nQuantidade inválida!");
+                        Console.ResetColor();
+
+                        Console.ReadKey();
+                        continue;
+                    }
 
                     Console.Write("Quantidade Mínima de Alerta: ");
-                    int.TryParse(Console.ReadLine(), out int qtdMin);
+
+                    // Validação da quantidade mínima
+                    if (!int.TryParse(Console.ReadLine(), out int qtdMin) || qtdMin < 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\nQuantidade mínima inválida!");
+                        Console.ResetColor();
+
+                        Console.ReadKey();
+                        continue;
+                    }
 
                     estoque.Add(new Produto(nome, qtd, qtdMin));
 
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("\n✅ Produto cadastrado com sucesso!");
+                    Console.WriteLine($"\nProduto '{nome}' cadastrado com sucesso!");
                     Console.ResetColor();
 
                     Console.WriteLine("\nPressione qualquer tecla para voltar ao menu...");
