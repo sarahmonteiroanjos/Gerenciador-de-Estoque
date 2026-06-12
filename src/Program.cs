@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -24,7 +24,8 @@ namespace MeuProjetoEstoque
                 Console.WriteLine("1 - Listar Produtos em Estoque");
                 Console.WriteLine("2 - Adicionar Novo Produto");
                 Console.WriteLine("3 - Consultar CEP (Novo Fornecedor)");
-                Console.WriteLine("4 - Sair");
+                Console.WriteLine("4 - Pesquisar Produto");
+                Console.WriteLine("5 - Sair");
                 Console.Write("\nEscolha uma opção: ");
 
                 string opcao = Console.ReadLine() ?? "";
@@ -113,6 +114,11 @@ namespace MeuProjetoEstoque
                     Console.ReadKey();
                 }
                 else if (opcao == "4")
+                {
+                    // Chama a extensão de pesquisa de produtos (PesquisaProdutoService.cs)
+                    PesquisaProdutoService.ExibirMenuPesquisa(estoque);
+                }
+                else if (opcao == "5")
                 {
                     Console.WriteLine("\nObrigado por usar o sistema. Até logo!");
                     break;

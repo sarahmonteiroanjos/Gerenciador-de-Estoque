@@ -1,0 +1,14 @@
+/home/caio/Downloads/Gerenciador-de-Estoque-main/src/bin/Debug/net10.0/MeuProjetoEstoque
+/home/caio/Downloads/Gerenciador-de-Estoque-main/src/bin/Debug/net10.0/MeuProjetoEstoque.deps.json
+/home/caio/Downloads/Gerenciador-de-Estoque-main/src/bin/Debug/net10.0/MeuProjetoEstoque.runtimeconfig.json
+/home/caio/Downloads/Gerenciador-de-Estoque-main/src/bin/Debug/net10.0/MeuProjetoEstoque.dll
+/home/caio/Downloads/Gerenciador-de-Estoque-main/src/bin/Debug/net10.0/MeuProjetoEstoque.pdb
+/home/caio/Downloads/Gerenciador-de-Estoque-main/src/obj/Debug/net10.0/MeuProjetoEstoque.GeneratedMSBuildEditorConfig.editorconfig
+/home/caio/Downloads/Gerenciador-de-Estoque-main/src/obj/Debug/net10.0/MeuProjetoEstoque.AssemblyInfoInputs.cache
+/home/caio/Downloads/Gerenciador-de-Estoque-main/src/obj/Debug/net10.0/MeuProjetoEstoque.AssemblyInfo.cs
+/home/caio/Downloads/Gerenciador-de-Estoque-main/src/obj/Debug/net10.0/MeuProjetoEstoque.csproj.CoreCompileInputs.cache
+/home/caio/Downloads/Gerenciador-de-Estoque-main/src/obj/Debug/net10.0/MeuProjetoEstoque.dll
+/home/caio/Downloads/Gerenciador-de-Estoque-main/src/obj/Debug/net10.0/refint/MeuProjetoEstoque.dll
+/home/caio/Downloads/Gerenciador-de-Estoque-main/src/obj/Debug/net10.0/MeuProjetoEstoque.pdb
+/home/caio/Downloads/Gerenciador-de-Estoque-main/src/obj/Debug/net10.0/MeuProjetoEstoque.genruntimeconfig.cache
+/home/caio/Downloads/Gerenciador-de-Estoque-main/src/obj/Debug/net10.0/ref/MeuProjetoEstoque.dll
