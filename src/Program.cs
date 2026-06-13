@@ -1,148 +1,220 @@
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Threading.Tasks;
+using Npgsql;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace MeuProjetoEstoque
 {
     class Program
     {
-        // Alterado para "static async Task" para permitir o uso de internet (async/await) do ViaCEP
         static async Task Main(string[] args)
         {
-            List<Produto> estoque = new List<Produto>();
-            var viaCepService = new ViaCepService();
+            var config =
+                new ConfigurationBuilder()
+                .SetBasePath(
+                    Directory.GetCurrentDirectory()
+                )
+                .AddJsonFile(
+                    "appsettings.json"
+                )
+                .Build();
 
-            // Dados iniciais de teste (da sua primeira etapa)
-            estoque.Add(new Produto("Farinha de Trigo", 15, 5));
-            estoque.Add(new Produto("Açúcar Refinado", 3, 10)); // Gera alerta (qtd < minima)
-            estoque.Add(new Produto("Fermento Químico", 8, 2));
+            string connectionString =
+                config.GetConnectionString(
+                    "DefaultConnection"
+                );
+
+            var viaCepService =
+                new ViaCepService();
 
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("📦 --- GERENCIADOR DE ESTOQUE --- 📦\n");
-                Console.WriteLine("1 - Listar Produtos em Estoque");
-                Console.WriteLine("2 - Adicionar Novo Produto");
-                Console.WriteLine("3 - Consultar CEP (Novo Fornecedor)");
-                Console.WriteLine("4 - Pesquisar Produto");
-                Console.WriteLine("5 - Sair");
-                Console.Write("\nEscolha uma opção: ");
 
-                string opcao = Console.ReadLine() ?? "";
+                Console.WriteLine(
+                    "📦 --- GERENCIADOR DE ESTOQUE --- 📦\n"
+                );
+
+                Console.WriteLine(
+                    "1 - Listar Produtos"
+                );
+
+                Console.WriteLine(
+                    "2 - Adicionar Produto"
+                );
+
+                Console.WriteLine(
+                    "3 - Consultar CEP"
+                );
+
+                Console.WriteLine(
+                    "4 - Sair"
+                );
+
+                Console.Write(
+                    "\nEscolha: "
+                );
+
+                string opcao =
+                    Console.ReadLine()
+                    ?? "";
 
                 if (opcao == "1")
                 {
+                    using var conn =
+                        new NpgsqlConnection(
+                            connectionString
+                        );
+
+                    await conn.OpenAsync();
+
+                    var cmd =
+                        new NpgsqlCommand(
+                            @"SELECT nome,
+                              quantidade,
+                              quantidade_minima
+                              FROM produtos",
+                            conn
+                        );
+
+                    using var reader =
+                        await cmd
+                        .ExecuteReaderAsync();
+
                     Console.Clear();
-                    Console.WriteLine("📋 --- PRODUTOS CADASTRADOS --- 📋\n");
 
-                    foreach (var prod in estoque)
+                    while (
+                        await reader
+                        .ReadAsync()
+                    )
                     {
-                        Console.Write($"- {prod.Nome} | Qtd: {prod.Quantidade} (Mínimo: {prod.QuantidadeMinima})");
-
-                        // Alerta visual se o estoque estiver baixo
-                        if (prod.Quantidade < prod.QuantidadeMinima)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine(" ⚠️ [ALERTA: ESTOQUE BAIXO]");
-                            Console.ResetColor();
-                        }
-                        else
-                        {
-                            Console.WriteLine();
-                        }
+                        Console.WriteLine(
+                            $"{reader["nome"]} | " +
+                            $"Qtd: {reader["quantidade"]} | " +
+                            $"Min: {reader["quantidade_minima"]}"
+                        );
                     }
 
-                    Console.WriteLine("\nPressione qualquer tecla para voltar ao menu...");
                     Console.ReadKey();
                 }
+
                 else if (opcao == "2")
                 {
-                    Console.Clear();
-                    Console.WriteLine("➕ --- CADASTRAR NOVO PRODUTO --- ➕\n");
+                    Console.Write(
+                        "Nome: "
+                    );
 
-                    Console.Write("Nome do Produto: ");
-                    string nome = Console.ReadLine() ?? "";
+                    string nome =
+                        Console.ReadLine()
+                        ?? "";
 
-                    Console.Write("Quantidade Atual: ");
-                    int.TryParse(Console.ReadLine(), out int qtd);
+                    Console.Write(
+                        "Quantidade: "
+                    );
 
-                    Console.Write("Quantidade Mínima de Alerta: ");
-                    int.TryParse(Console.ReadLine(), out int qtdMin);
+                    int qtd =
+                        int.Parse(
+                            Console.ReadLine()
+                            ?? "0"
+                        );
 
-                    estoque.Add(new Produto(nome, qtd, qtdMin));
+                    Console.Write(
+                        "Quantidade mínima: "
+                    );
 
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("\n✅ Produto cadastrado com sucesso!");
-                    Console.ResetColor();
+                    int min =
+                        int.Parse(
+                            Console.ReadLine()
+                            ?? "0"
+                        );
 
-                    Console.WriteLine("\nPressione qualquer tecla para voltar ao menu...");
+                    using var conn =
+                        new NpgsqlConnection(
+                            connectionString
+                        );
+
+                    await conn.OpenAsync();
+
+                    var cmd =
+                        new NpgsqlCommand(
+                            @"
+                            INSERT INTO produtos
+                            (
+                                nome,
+                                quantidade,
+                                quantidade_minima
+                            )
+                            VALUES
+                            (
+                                @nome,
+                                @qtd,
+                                @min
+                            )",
+                            conn
+                        );
+
+                    cmd.Parameters
+                        .AddWithValue(
+                            "nome",
+                            nome
+                        );
+
+                    cmd.Parameters
+                        .AddWithValue(
+                            "qtd",
+                            qtd
+                        );
+
+                    cmd.Parameters
+                        .AddWithValue(
+                            "min",
+                            min
+                        );
+
+                    await cmd
+                        .ExecuteNonQueryAsync();
+
+                    Console.WriteLine(
+                        "\n✅ Produto salvo no banco!"
+                    );
+
                     Console.ReadKey();
                 }
+
                 else if (opcao == "3")
                 {
-                    Console.Clear();
-                    Console.WriteLine("🔍 --- CONSULTAR CEP DE FORNECEDOR --- 🔍\n");
-                    Console.Write("Digite o CEP (ex: 01001000): ");
-                    string cepDigitado = Console.ReadLine() ?? "";
+                    Console.Write(
+                        "Digite CEP: "
+                    );
 
-                    Console.WriteLine("\nConsultando a API do ViaCEP... Aguarde...");
+                    string cep =
+                        Console.ReadLine()
+                        ?? "";
 
-                    // Integração com o serviço de CEP criado na etapa intermediária
-                    var endereco = await viaCepService.BuscarCepAsync(cepDigitado);
+                    var endereco =
+                        await viaCepService
+                        .BuscarCepAsync(
+                            cep
+                        );
 
                     if (endereco != null)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("\n✅ Endereço Encontrado com Sucesso!");
-                        Console.ResetColor();
-
-                        Console.WriteLine($"------------------------------------");
-                        Console.WriteLine($"📍 Logradouro: {endereco.Logradouro}");
-                        Console.WriteLine($"🏘️ Bairro:     {endereco.Bairro}");
-                        Console.WriteLine($"🏙️ Cidade:     {endereco.Localidade}");
-                        Console.WriteLine($"🇧🇷 Estado:     {endereco.Uf}");
-                        Console.WriteLine($"------------------------------------");
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\n❌ CEP não encontrado ou inválido. Verifique a conexão.");
-                        Console.ResetColor();
+                        Console.WriteLine(
+                            endereco.Localidade
+                        );
                     }
 
-                    Console.WriteLine("\nPressione qualquer tecla para voltar ao menu...");
                     Console.ReadKey();
                 }
-                else if (opcao == "4")
+
+                else if (
+                    opcao == "4"
+                )
                 {
-                    // Chama a extensão de pesquisa de produtos (PesquisaProdutoService.cs)
-                    PesquisaProdutoService.ExibirMenuPesquisa(estoque);
-                }
-                else if (opcao == "5")
-                {
-                    Console.WriteLine("\nObrigado por usar o sistema. Até logo!");
                     break;
                 }
-                else
-                {
-                    Console.WriteLine("\n❌ Opção inválida! Pressione qualquer tecla para tentar novamente...");
-                    Console.ReadKey();
-                }
             }
-        }
-    }
-
-    public class Produto
-    {
-        public string Nome { get; set; }
-        public int Quantidade { get; set; }
-        public int QuantidadeMinima { get; set; }
-
-        public Produto(string nome, int quantidade, int quantidadeMinima)
-        {
-            Nome = nome;
-            Quantidade = quantidade;
-            QuantidadeMinima = quantidadeMinima;
         }
     }
 }
