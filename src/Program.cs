@@ -73,16 +73,45 @@ namespace MeuProjetoEstoque
                 else if (opcao == "2")
                 {
                     Console.Write("Nome: ");
+
                     string nome =
-                        Console.ReadLine() ?? "";
+                        (Console.ReadLine() ?? "")
+                        .Trim();
 
-                    Console.Write("Quantidade: ");
+                    if (
+                        string.IsNullOrWhiteSpace(
+                            nome
+                        )
+                    )
+                    {
+                        Console.WriteLine(
+                            "\n❌ O nome do produto não pode estar vazio ou conter apenas espaços."
+                        );
+
+                        Console.ReadKey();
+
+                        continue;
+                    }
+
+                    Console.Write(
+                        "Quantidade: "
+                    );
+
                     int qtd =
-                        int.Parse(Console.ReadLine() ?? "0");
+                        int.Parse(
+                            Console.ReadLine()
+                            ?? "0"
+                        );
 
-                    Console.Write("Quantidade mínima: ");
+                    Console.Write(
+                        "Quantidade mínima: "
+                    );
+
                     int min =
-                        int.Parse(Console.ReadLine() ?? "0");
+                        int.Parse(
+                            Console.ReadLine()
+                            ?? "0"
+                        );
 
                     if (qtd < 0)
                     {
@@ -91,6 +120,7 @@ namespace MeuProjetoEstoque
                         );
 
                         Console.ReadKey();
+
                         continue;
                     }
 
@@ -101,27 +131,40 @@ namespace MeuProjetoEstoque
                         );
 
                         Console.ReadKey();
+
                         continue;
                     }
 
                     using var conn =
-                        new NpgsqlConnection(connectionString);
+                        new NpgsqlConnection(
+                            connectionString
+                        );
 
                     await conn.OpenAsync();
 
-                    var verificaCmd = new NpgsqlCommand(
-                        "SELECT COUNT(*) FROM produtos WHERE nome = @nome",
-                        conn
-                    );
+                    var verificaCmd =
+                        new NpgsqlCommand(
+                            @"
+                            SELECT COUNT(*)
+                            FROM produtos
+                            WHERE LOWER(TRIM(nome))
+                                =
+                                LOWER(TRIM(@nome))
+                            ",
+                            conn
+                        );
 
-                    verificaCmd.Parameters.AddWithValue(
-                        "nome",
-                        nome
-                    );
+                    verificaCmd
+                        .Parameters
+                        .AddWithValue(
+                            "nome",
+                            nome
+                        );
 
                     long existe =
                         (long)(
-                            await verificaCmd.ExecuteScalarAsync()
+                            await verificaCmd
+                                .ExecuteScalarAsync()
                             ?? 0
                         );
 
@@ -132,42 +175,49 @@ namespace MeuProjetoEstoque
                         );
 
                         Console.ReadKey();
+
                         continue;
                     }
 
-                    var cmd = new NpgsqlCommand(
-                        @"
-                        INSERT INTO produtos
-                        (
-                            nome,
-                            quantidade,
-                            quantidade_minima
-                        )
-                        VALUES
-                        (
-                            @nome,
-                            @qtd,
-                            @min
-                        )",
-                        conn
-                    );
+                    var cmd =
+                        new NpgsqlCommand(
+                            @"
+                            INSERT INTO produtos
+                            (
+                                nome,
+                                quantidade,
+                                quantidade_minima
+                            )
+                            VALUES
+                            (
+                                @nome,
+                                @qtd,
+                                @min
+                            )
+                            ",
+                            conn
+                        );
 
-                    cmd.Parameters.AddWithValue(
-                        "nome",
-                        nome
-                    );
+                    cmd.Parameters
+                        .AddWithValue(
+                            "nome",
+                            nome
+                        );
 
-                    cmd.Parameters.AddWithValue(
-                        "qtd",
-                        qtd
-                    );
+                    cmd.Parameters
+                        .AddWithValue(
+                            "qtd",
+                            qtd
+                        );
 
-                    cmd.Parameters.AddWithValue(
-                        "min",
-                        min
-                    );
+                    cmd.Parameters
+                        .AddWithValue(
+                            "min",
+                            min
+                        );
 
-                    await cmd.ExecuteNonQueryAsync();
+                    await cmd
+                        .ExecuteNonQueryAsync();
 
                     Console.WriteLine(
                         "\n✅ Produto salvo no banco!"
