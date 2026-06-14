@@ -176,7 +176,7 @@ namespace MeuProjetoEstoque
                     Console.WriteLine("\n✅ Produto salvo no banco!");
 
                     Console.ReadKey();
-                
+
 
                 }
 
@@ -280,8 +280,8 @@ namespace MeuProjetoEstoque
                 {
                     break;
                 }
-            }   
-        }   
+            }
+        }
     }
 }
 
