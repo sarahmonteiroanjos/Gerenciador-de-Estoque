@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Threading.Tasks;
-using Npgsql;
-using Microsoft.Extensions.Configuration;
 using System.IO;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using Npgsql;
 
 namespace MeuProjetoEstoque
 {
@@ -10,89 +10,56 @@ namespace MeuProjetoEstoque
     {
         static async Task Main(string[] args)
         {
-            var config =
-                new ConfigurationBuilder()
-                .SetBasePath(
-                Directory.GetCurrentDirectory()
-                )
-                .AddJsonFile(
-                "appsettings.json"
-                )
+            var config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
                 .Build();
 
-
             string connectionString =
-                config.GetConnectionString(
-                    "DefaultConnection"
-                );
+                config.GetConnectionString("DefaultConnection");
 
-            var viaCepService =
-                new ViaCepService();
+            var viaCepService = new ViaCepService();
 
             while (true)
             {
                 Console.Clear();
 
-                Console.WriteLine(
-                    "📦 --- GERENCIADOR DE ESTOQUE --- 📦\n"
-                );
+                Console.WriteLine("📦 --- GERENCIADOR DE ESTOQUE --- 📦\n");
 
-                Console.WriteLine(
-                    "1 - Listar Produtos"
-                );
+                Console.WriteLine("1 - Listar Produtos");
+                Console.WriteLine("2 - Adicionar Produto");
+                Console.WriteLine("3 - Consultar CEP");
+                Console.WriteLine("4 - Pesquisar Produto");
+                Console.WriteLine("5 - Sair");
 
-                Console.WriteLine(
-                    "2 - Adicionar Produto"
-                );
-
-                Console.WriteLine(
-                    "3 - Consultar CEP"
-                );
-
-                Console.WriteLine(
-                    "4 - Pesquisar Produto"
-                );
-
-                Console.WriteLine(
-                    "5 - Sair"
-                );
-
-                Console.Write(
-                    "\nEscolha: "
-                );
+                Console.Write("\nEscolha: ");
 
                 string opcao =
-                    Console.ReadLine()
-                    ?? "";
+                    Console.ReadLine() ?? "";
 
                 if (opcao == "1")
                 {
                     using var conn =
-                        new NpgsqlConnection(
-                            connectionString
-                        );
+                        new NpgsqlConnection(connectionString);
 
                     await conn.OpenAsync();
 
-                    var cmd =
-                        new NpgsqlCommand(
-                            @"SELECT nome,
+                    var cmd = new NpgsqlCommand(
+                        @"
+                        SELECT
+                            nome,
                             quantidade,
                             quantidade_minima
-                            FROM produtos",
-                            conn
-                        );
+                        FROM produtos",
+                        conn
+                    );
 
                     using var reader =
-                        await cmd
-                        .ExecuteReaderAsync();
+                        await cmd.ExecuteReaderAsync();
 
                     Console.Clear();
 
-                    while (
-                        await reader
-                        .ReadAsync()
-                    )
+                    while (await reader.ReadAsync())
                     {
                         Console.WriteLine(
                             $"{reader["nome"]} | " +
@@ -103,34 +70,42 @@ namespace MeuProjetoEstoque
 
                     Console.ReadKey();
                 }
-
                 else if (opcao == "2")
                 {
                     Console.Write("Nome: ");
-                    string nome = Console.ReadLine() ?? "";
-
+                    string nome =
+                        Console.ReadLine() ?? "";
 
                     Console.Write("Quantidade: ");
-                    int qtd = int.Parse(Console.ReadLine() ?? "0");
+                    int qtd =
+                        int.Parse(Console.ReadLine() ?? "0");
 
                     Console.Write("Quantidade mínima: ");
-                    int min = int.Parse(Console.ReadLine() ?? "0");
+                    int min =
+                        int.Parse(Console.ReadLine() ?? "0");
 
                     if (qtd < 0)
                     {
-                        Console.WriteLine("\n❌ A quantidade não pode ser menor que 0.");
+                        Console.WriteLine(
+                            "\n❌ A quantidade não pode ser menor que 0."
+                        );
+
                         Console.ReadKey();
                         continue;
                     }
 
                     if (min < 0)
                     {
-                        Console.WriteLine("\n❌ A quantidade mínima não pode ser menor que 0.");
+                        Console.WriteLine(
+                            "\n❌ A quantidade mínima não pode ser menor que 0."
+                        );
+
                         Console.ReadKey();
                         continue;
                     }
 
-                    using var conn = new NpgsqlConnection(connectionString);
+                    using var conn =
+                        new NpgsqlConnection(connectionString);
 
                     await conn.OpenAsync();
 
@@ -139,13 +114,23 @@ namespace MeuProjetoEstoque
                         conn
                     );
 
-                    verificaCmd.Parameters.AddWithValue("nome", nome);
+                    verificaCmd.Parameters.AddWithValue(
+                        "nome",
+                        nome
+                    );
 
-                    long existe = (long)(await verificaCmd.ExecuteScalarAsync() ?? 0);
+                    long existe =
+                        (long)(
+                            await verificaCmd.ExecuteScalarAsync()
+                            ?? 0
+                        );
 
                     if (existe > 0)
                     {
-                        Console.WriteLine("\n❌ Já existe um produto com esse nome.");
+                        Console.WriteLine(
+                            "\n❌ Já existe um produto com esse nome."
+                        );
+
                         Console.ReadKey();
                         continue;
                     }
@@ -167,34 +152,39 @@ namespace MeuProjetoEstoque
                         conn
                     );
 
-                    cmd.Parameters.AddWithValue("nome", nome);
-                    cmd.Parameters.AddWithValue("qtd", qtd);
-                    cmd.Parameters.AddWithValue("min", min);
+                    cmd.Parameters.AddWithValue(
+                        "nome",
+                        nome
+                    );
+
+                    cmd.Parameters.AddWithValue(
+                        "qtd",
+                        qtd
+                    );
+
+                    cmd.Parameters.AddWithValue(
+                        "min",
+                        min
+                    );
 
                     await cmd.ExecuteNonQueryAsync();
 
-                    Console.WriteLine("\n✅ Produto salvo no banco!");
-
-                    Console.ReadKey();
-
-
-                }
-
-                else if (opcao == "3")
-                {
-                    Console.Write(
-                        "Digite CEP: "
+                    Console.WriteLine(
+                        "\n✅ Produto salvo no banco!"
                     );
 
+                    Console.ReadKey();
+                }
+                else if (opcao == "3")
+                {
+                    Console.Write("Digite CEP: ");
+
                     string cep =
-                        Console.ReadLine()
-                        ?? "";
+                        Console.ReadLine() ?? "";
 
                     var endereco =
                         await viaCepService
-                        .BuscarCepAsync(
-                            cep
-                        );
+                            .BuscarCepAsync(cep);
 
                     if (endereco != null)
                     {
@@ -205,7 +195,6 @@ namespace MeuProjetoEstoque
 
                     Console.ReadKey();
                 }
-
                 else if (opcao == "4")
                 {
                     Console.Write(
@@ -213,27 +202,23 @@ namespace MeuProjetoEstoque
                     );
 
                     string termo =
-                        Console.ReadLine()
-                        ?? "";
+                        Console.ReadLine() ?? "";
 
                     using var conn =
-                        new NpgsqlConnection(
-                            connectionString
-                        );
+                        new NpgsqlConnection(connectionString);
 
                     await conn.OpenAsync();
 
-                    var cmd =
-                        new NpgsqlCommand(
-                            @"
-                            SELECT
-                                nome,
-                                quantidade,
-                                quantidade_minima
-                            FROM produtos
-                            WHERE nome ILIKE @termo",
-                            conn
-                        );
+                    var cmd = new NpgsqlCommand(
+                        @"
+                        SELECT
+                            nome,
+                            quantidade,
+                            quantidade_minima
+                        FROM produtos
+                        WHERE nome ILIKE @termo",
+                        conn
+                    );
 
                     cmd.Parameters.AddWithValue(
                         "termo",
@@ -251,9 +236,7 @@ namespace MeuProjetoEstoque
 
                     bool encontrou = false;
 
-                    while (
-                        await reader.ReadAsync()
-                    )
+                    while (await reader.ReadAsync())
                     {
                         encontrou = true;
 
@@ -273,10 +256,7 @@ namespace MeuProjetoEstoque
 
                     Console.ReadKey();
                 }
-
-                else if (
-                    opcao == "5"
-                )
+                else if (opcao == "5")
                 {
                     break;
                 }
@@ -284,4 +264,3 @@ namespace MeuProjetoEstoque
         }
     }
 }
-
