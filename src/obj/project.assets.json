@@ -577,31 +577,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\julia\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\suporte\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\julia\\OneDrive\\Área de Trabalho\\Gerenciador-de-Estoque\\src\\MeuProjetoEstoque.csproj",
+      "projectUniqueName": "C:\\Users\\suporte\\Desktop\\Gerenciador-de-Estoque\\src\\MeuProjetoEstoque.csproj",
       "projectName": "MeuProjetoEstoque",
-      "projectPath": "C:\\Users\\julia\\OneDrive\\Área de Trabalho\\Gerenciador-de-Estoque\\src\\MeuProjetoEstoque.csproj",
-      "packagesPath": "C:\\Users\\julia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\julia\\OneDrive\\Área de Trabalho\\Gerenciador-de-Estoque\\src\\obj\\",
+      "projectPath": "C:\\Users\\suporte\\Desktop\\Gerenciador-de-Estoque\\src\\MeuProjetoEstoque.csproj",
+      "packagesPath": "C:\\Users\\suporte\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\suporte\\Desktop\\Gerenciador-de-Estoque\\src\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\julia\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\suporte\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

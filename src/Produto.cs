@@ -1,18 +1,28 @@
 namespace MeuProjetoEstoque
 {
-    public class Produto
+public class Produto
+{
+public string Nome { get; set; } = "";
+public int Quantidade { get; set; }
+public int QuantidadeMinima { get; set; }
+
+    public Produto() { }
+
+    public Produto(string nome, int quantidade, int quantidadeMinima)
     {
-        public string Nome { get; set; } = "";
-        public int Quantidade { get; set; }
-        public int QuantidadeMinima { get; set; }
+        if (string.IsNullOrWhiteSpace(nome))
+            throw new Exception("O nome do produto é obrigatório.");
 
-        public Produto() { }
+        if (quantidade < 0)
+            throw new Exception("A quantidade não pode ser menor que 0.");
 
-        public Produto(string nome, int quantidade, int quantidadeMinima)
-        {
-            Nome = nome;
-            Quantidade = quantidade;
-            QuantidadeMinima = quantidadeMinima;
-        }
+        if (quantidadeMinima < 0)
+            throw new Exception("A quantidade mínima não pode ser menor que 0.");
+
+        Nome = nome;
+        Quantidade = quantidade;
+        QuantidadeMinima = quantidadeMinima;
     }
+}
+
 }
