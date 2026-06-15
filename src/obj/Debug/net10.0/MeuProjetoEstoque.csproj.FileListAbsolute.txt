@@ -12,59 +12,87 @@
 /home/caio/Downloads/Gerenciador-de-Estoque-main/src/obj/Debug/net10.0/MeuProjetoEstoque.pdb
 /home/caio/Downloads/Gerenciador-de-Estoque-main/src/obj/Debug/net10.0/MeuProjetoEstoque.genruntimeconfig.cache
 /home/caio/Downloads/Gerenciador-de-Estoque-main/src/obj/Debug/net10.0/ref/MeuProjetoEstoque.dll
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.csproj.AssemblyReference.cache
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.AssemblyInfoInputs.cache
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.AssemblyInfo.cs
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.csproj.CoreCompileInputs.cache
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.sourcelink.json
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.dll
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\obj\Debug\net10.0\refint\MeuProjetoEstoque.dll
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.pdb
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\MeuProjetoEstoque.exe
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\MeuProjetoEstoque.deps.json
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\MeuProjetoEstoque.runtimeconfig.json
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\MeuProjetoEstoque.dll
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\MeuProjetoEstoque.pdb
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.Configuration.dll
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.Configuration.FileExtensions.dll
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.Configuration.Json.dll
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.FileProviders.Abstractions.dll
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.FileProviders.Physical.dll
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.FileSystemGlobbing.dll
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.Primitives.dll
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Npgsql.dll
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProje.FFDDD0B7.Up2Date
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.genruntimeconfig.cache
-C:\Users\julia\OneDrive\Área de Trabalho\Gerenciador-de-Estoque\src\obj\Debug\net10.0\ref\MeuProjetoEstoque.dll
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.csproj.AssemblyReference.cache
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.AssemblyInfoInputs.cache
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.AssemblyInfo.cs
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.csproj.CoreCompileInputs.cache
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.sourcelink.json
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.dll
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\obj\Debug\net10.0\refint\MeuProjetoEstoque.dll
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.pdb
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\MeuProjetoEstoque.exe
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\MeuProjetoEstoque.deps.json
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\MeuProjetoEstoque.runtimeconfig.json
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\MeuProjetoEstoque.dll
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\MeuProjetoEstoque.pdb
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.Configuration.dll
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.Configuration.FileExtensions.dll
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.Configuration.Json.dll
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.FileProviders.Abstractions.dll
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.FileProviders.Physical.dll
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.FileSystemGlobbing.dll
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Microsoft.Extensions.Primitives.dll
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\bin\Debug\net10.0\Npgsql.dll
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProje.FFDDD0B7.Up2Date
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\obj\Debug\net10.0\MeuProjetoEstoque.genruntimeconfig.cache
-C:\Users\suporte\Desktop\Gerenciador-de-Estoque\src\obj\Debug\net10.0\ref\MeuProjetoEstoque.dll
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.csproj.AssemblyReference.cache
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.AssemblyInfoInputs.cache
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.AssemblyInfo.cs
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.csproj.CoreCompileInputs.cache
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.sourcelink.json
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.dll
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/obj/Debug/net10.0/refint/MeuProjetoEstoque.dll
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.pdb
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/MeuProjetoEstoque.exe
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/MeuProjetoEstoque.deps.json
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/MeuProjetoEstoque.runtimeconfig.json
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/MeuProjetoEstoque.dll
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/MeuProjetoEstoque.pdb
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Configuration.dll
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Configuration.FileExtensions.dll
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Configuration.Json.dll
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.FileProviders.Abstractions.dll
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.FileProviders.Physical.dll
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.FileSystemGlobbing.dll
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Primitives.dll
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Npgsql.dll
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProje.FFDDD0B7.Up2Date
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.genruntimeconfig.cache
+C:/Users/julia/OneDrive/Área de Trabalho/Gerenciador-de-Estoque/src/obj/Debug/net10.0/ref/MeuProjetoEstoque.dll
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.csproj.AssemblyReference.cache
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.AssemblyInfoInputs.cache
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.AssemblyInfo.cs
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.csproj.CoreCompileInputs.cache
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.sourcelink.json
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.dll
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/obj/Debug/net10.0/refint/MeuProjetoEstoque.dll
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.pdb
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/MeuProjetoEstoque.exe
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/MeuProjetoEstoque.deps.json
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/MeuProjetoEstoque.runtimeconfig.json
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/MeuProjetoEstoque.dll
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/MeuProjetoEstoque.pdb
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Configuration.dll
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Configuration.FileExtensions.dll
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Configuration.Json.dll
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.FileProviders.Abstractions.dll
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.FileProviders.Physical.dll
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.FileSystemGlobbing.dll
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Primitives.dll
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Npgsql.dll
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProje.FFDDD0B7.Up2Date
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.genruntimeconfig.cache
+C:/Users/suporte/Desktop/Gerenciador-de-Estoque/src/obj/Debug/net10.0/ref/MeuProjetoEstoque.dll
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/MeuProjetoEstoque
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/MeuProjetoEstoque.deps.json
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/MeuProjetoEstoque.runtimeconfig.json
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/MeuProjetoEstoque.dll
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/MeuProjetoEstoque.pdb
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Configuration.dll
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Configuration.FileExtensions.dll
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Configuration.Json.dll
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.FileProviders.Abstractions.dll
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.FileProviders.Physical.dll
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.FileSystemGlobbing.dll
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Logging.Abstractions.dll
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Microsoft.Extensions.Primitives.dll
+/workspaces/Gerenciador-de-Estoque/src/bin/Debug/net10.0/Npgsql.dll
+/workspaces/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.csproj.AssemblyReference.cache
+/workspaces/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.AssemblyInfoInputs.cache
+/workspaces/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.AssemblyInfo.cs
+/workspaces/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.csproj.CoreCompileInputs.cache
+/workspaces/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.sourcelink.json
+/workspaces/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProje.FFDDD0B7.Up2Date
+/workspaces/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.dll
+/workspaces/Gerenciador-de-Estoque/src/obj/Debug/net10.0/refint/MeuProjetoEstoque.dll
+/workspaces/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.pdb
+/workspaces/Gerenciador-de-Estoque/src/obj/Debug/net10.0/MeuProjetoEstoque.genruntimeconfig.cache
+/workspaces/Gerenciador-de-Estoque/src/obj/Debug/net10.0/ref/MeuProjetoEstoque.dll
