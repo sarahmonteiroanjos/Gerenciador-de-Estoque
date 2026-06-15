@@ -10,5 +10,6 @@ FROM mcr.microsoft.com/dotnet/runtime:10.0-preview
 WORKDIR /app
 
 COPY --from=build /app/publish .
+COPY src/appsettings.json .
 
 ENTRYPOINT ["dotnet", "MeuProjetoEstoque.dll"]
